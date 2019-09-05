@@ -9,7 +9,7 @@ RUN apt-get update && \
     tree \
     vim && \
   rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get purge
-RUN sudo chmod 777 /var/lib/jenkins/workspace/dockerapp/target/
+RUN chmod 777 /var/lib/jenkins/workspace/dockerapp/target/
 RUN chown -R root:root /var/lib/jenkins/workspace/dockerapp/target
 RUN cd /var/lib/jenkins/workspace/dockerapp/target
 RUN ls
