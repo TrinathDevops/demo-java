@@ -9,6 +9,8 @@ RUN apt-get update && \
     tree \
     vim && \
   rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get purge
+RUN chmod 777 /var/lib/jenkins/workspace/dockerapp/target/demo.war
+COPY /var/lib/jenkins/workspace/dockerapp/target/demo.war /usr/local/tomcat/webapps/demo.war
 
 RUN echo "export JAVA_OPTS=\"-Dapp.env=staging\"" > /usr/local/tomcat/bin/setenv.sh
 EXPOSE 8080
