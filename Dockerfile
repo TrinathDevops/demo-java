@@ -10,6 +10,7 @@ RUN apt-get update && \
     vim && \
   rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get purge
 RUN chmod 777 /var/lib/jenkins/workspace/dockerapp/target/demo.war
+RUN chown -R root:root /var/lib/jenkins/workspace/dockerapp/target
 RUN cd /var/lib/jenkins/workspace/dockerapp/target
 RUN ls
 COPY demo.war /usr/local/tomcat/webapps/demo.war
